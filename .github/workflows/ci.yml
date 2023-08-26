@@ -1,0 +1,47 @@
+
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "*/25 * * * *"
+
+jobs:
+  autogreen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          #if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          #
+        
+      - name: Update zhihu
+        run: |
+          sh run.sh
+        
+      - name: Auto green
+        run: |
+          git config --global user.email 1058662528@qq.com
+          git config --global user.name aikeji
+          git add .
+          #git commit -m"action:`date +'%Y-%m-%d'`"
+          git commit -m"action:`date`"
+          git pull --rebase
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
