@@ -1,5 +1,7 @@
 # Choreo
 
+Choreo直接关联本仓库，然后跑定时任务
+
 * * *
 
 # 目录
@@ -60,7 +62,7 @@
 
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/92626977/236611875-f1164bf7-1bdf-4c06-a693-ca3e7b600364.png">
 
-<img width="1637" alt="image" src="https://user-images.githubusercontent.com/92626977/236786108-33ebd062-3d17-44ec-98ed-af022c3933e2.png">
+<img width="1391" alt="image" src="https://github.com/hello20030909/choreo/assets/130833649/6cdd4609-7236-466b-8db7-9c2293e73858">
 
 <img width="1293" alt="image" src="https://user-images.githubusercontent.com/92626977/236787682-5c98c391-8000-455a-b7cf-c4e08b072655.png">
 
