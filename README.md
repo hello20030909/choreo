@@ -64,6 +64,8 @@ Choreo直接关联本仓库，然后跑定时任务
 
 <img width="1391" alt="image" src="https://github.com/hello20030909/choreo/assets/130833649/6cdd4609-7236-466b-8db7-9c2293e73858">
 
+<img width="1250" alt="image" src="https://github.com/hello20030909/choreo/assets/130833649/65da251f-2062-4ca0-b5ab-504832b45fdb">
+
 <img width="1293" alt="image" src="https://user-images.githubusercontent.com/92626977/236787682-5c98c391-8000-455a-b7cf-c4e08b072655.png">
 
 <img width="1638" alt="image" src="https://user-images.githubusercontent.com/92626977/236611941-2760746e-0ae3-40a8-be64-d2974e4f0a84.png">
