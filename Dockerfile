@@ -1,24 +1,21 @@
-FROM node:latest
 
-WORKDIR /home/choreouser
+FROM node:slim
 
-COPY files/* /home/choreouser/
+WORKDIR /app
+ENV TZ="Asia/Shanghai" \
+  NODE_ENV="production"
 
-ENV PM2_HOME=/tmp
+COPY nm index.js package.json start.sh /app/
+ 
+EXPOSE 3000
 
-RUN apt-get update &&\
-    apt-get install -y iproute2 vim &&\
-    npm install -r package.json &&\
-    npm install -g pm2 &&\
-    wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb &&\
-    dpkg -i cloudflared.deb &&\
-    rm -f cloudflared.deb &&\
-    addgroup --gid 10001 choreo &&\
-    adduser --disabled-password  --no-create-home --uid 10001 --ingroup choreo choreouser &&\
-    usermod -aG sudo choreouser &&\
-    chmod +x web.js entrypoint.sh nezha-agent ttyd &&\
-    npm install -r package.json
 
-ENTRYPOINT [ "node", "server.js" ]
+RUN chmod 777 nm index.js package.json start.sh /app &&\
+  apt-get update && \
+  apt-get install -y iproute2  coreutils  procps curl && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    npm install
 
-USER 10001
+
+CMD ["node", "index.js"]
